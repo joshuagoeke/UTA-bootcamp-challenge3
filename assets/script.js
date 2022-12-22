@@ -29,11 +29,28 @@ var inclSpecial;
 
 
 
+
+// var thisManyTimesTest = 8;
+function pickEm(arr, num){
+  var answer = [];
+  for (var i = 0; i < num; i++){
+      answer.push(arr[Math.floor(Math.random()*arr.length)]);
+      console.log(answer);
+  };
+ console.log(answer);
+ return answer
+};
+// console.log(pickEm(lowerCase, thisManyTimesTest));
+
+  //   var compOption =["r", "p", "s"]
+  //   return compOption[Math.floor(Math.random()*3)];
+
 function generatePassword() {
   //must return a string value that is the password
   //user is prompted for pw length between 8 and 128
 var thisMany;
-var howMany = window.prompt("I'll help you make up a gobbledygook password.\n How many characters do you want?\n Pick a number between 8 and 128.");
+var howMany = window.prompt("I'll help you make up a gobbledygook password.\nHow many characters do you want?\nPick a number between 8 and 128.");
+console.log(howMany)
 if (isNaN(howMany)){
   window.alert("Listen smarty-pants, when I ask for a number between 8 and 128 I mean that I want a NUMBER (8,9,10,11...) between 8 and 128.\n Try again.");
   generatePassword()
@@ -41,12 +58,17 @@ if (isNaN(howMany)){
   if (howMany < 8 || howMany > 128){
     window.alert("OK, I'm gonna say this again real slow. I want a number BIGGER than 8, but SMALLER than 128. There are at least 131 correct answers if you include the 8 and the 128, which I do.\nPick one.");
     generatePassword();
-} else if (Number.isInteger(howMany)){
+} else {
+  (howMany)*1
+  if (Number.isInteger(howMany)){
+            console.log("howMany an int? " + Number.isInteger(howMany))
             thisMany = howMany;
-        } else {
-            thisMany = Math.round(howMany);
-            // window.alert("Jeez Einstein. No reason to make it difficult. I rounded " + howMany + " to " + thisMany +".\n You're welcome");
+            console.log(thisMany);
+        } else {  
+          thisMany = Math.round(howMany);
+          window.alert("Jeez Einstein. No reason to make it difficult. I rounded " + howMany + " to " + thisMany +".\n You're welcome");
         };
+    };
   };
 
 
@@ -126,30 +148,28 @@ var youChose = [];
 if (inclLower){
     theseCharacters.concat(lowerCase);
     youChose.push("lowercase Characters");
+    console.log(theseCharacters);
     };
 if (inclUpper){
     theseCharacters.concat(upperCase);
     youChose.push("UPPERCASE Characters");
+    console.log(theseCharacters);
     };
 if (inclNum){
     theseCharacters.concat(numberChars);
     youChose.push("Numbers");
+    console.log(theseCharacters);
     };
 if (inclSpecial){
     theseCharacters.concat(specialCharacters);
     youChose.push("Special Characters");
-    }
+    console.log(theseCharacters);
+    };
 
 window.alert("One password with " + thisMany + " characters, including: " + JSON.stringify(youChose) + " coming right up.");
 window.alert("the theseCharacters array looks like " + JSON.stringify(theseCharacters) );
 
-function getMultipleRandom(arr, num) {
-    const shuffled = [...arr].sort(() => 0.5 -Math.random());
-    return shuffled.slice(0, num);
-}
-randoPick = getMultipleRandom(theseCharacters, thisMany);
-
-window.alert("the pick is " + JSON.stringify(randoPick));
+console.log(pickEm(theseCharacters, thisMany));
 
 // }
 // charTypes();
