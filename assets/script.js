@@ -33,7 +33,7 @@ function pickEm(arr, num){
       answer.push(arr[Math.floor(Math.random()*arr.length)]);
       // console.log(answer);
   };
- console.log(answer);
+//  console.log(answer);
  return answer
 };
 
@@ -42,7 +42,7 @@ function checkEm(arr1, arr2){
   var pass = false;
   for (var i = 0; i < arr1.length; i++){
     if(arr2.includes(arr1[i])){
-      console.log("found character from " + arr1 + " in " + arr2 + " in " + (i + 1) + "tries!" );
+      // console.log("found character from " + arr1 + " in " + arr2 + " in " + (i + 1) + "tries!" );
       pass = true;
       break
     }else{
@@ -78,7 +78,7 @@ function pickAndCheck() {
   if (inclSpecial){
     checkEm(answer, specialCharacters);
   };
-  console.log("all good in the hood!");
+  // console.log("all good in the hood!");
   return answer
 };
 
@@ -89,7 +89,7 @@ function generatePassword() {
   //user is prompted for pw length between 8 and 128
 thisMany = 0; //reset before user input
 var howMany = window.prompt("I'll help you make up a gobbledygook password.\nHow many characters do you want?\nPick a number between 8 and 128.");
-console.log(howMany)
+// console.log(howMany)
 if (isNaN(howMany)){
   window.alert("Listen smarty-pants, when I ask for a number between 8 and 128 I mean that I want a NUMBER (8,9,10,11...) between 8 and 128.\n Try again.");
   generatePassword()
@@ -100,9 +100,9 @@ if (isNaN(howMany)){
 } else {
   var thatMany = (howMany)/1
   if (Number.isInteger(thatMany)){
-            console.log("howMany an int? " + Number.isInteger(thatMany))
+            // console.log("howMany an int? " + Number.isInteger(thatMany))
             thisMany = thatMany;
-            console.log(thisMany);
+            // console.log(thisMany);
         } else {  
           thisMany = Math.round(howMany);
           window.alert("Jeez Einstein. No reason to make it difficult. I rounded " + howMany + " to " + thisMany +".\nYou're welcome.");
@@ -213,7 +213,7 @@ window.alert("One password with " + thisMany + " characters, including: " + JSON
 // window.alert("the theseCharacters array looks like " + JSON.stringify(theseCharacters) );
 
 stringThis = pickAndCheck();
-console.log(stringThis);
+// console.log(stringThis);
 
 //makes array into a string
 
