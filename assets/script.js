@@ -82,35 +82,44 @@ function pickAndCheck() {
   return answer
 };
 
-var thisMany = 0;
+var thisMany = 0; //reset before user input
 
 function generatePassword() {
   //must return a string value that is the password
   //user is prompted for pw length between 8 and 128
-thisMany = 0; //reset before user input
+// thisMany = 0; 
+
+function askHowMany(){
 var howMany = window.prompt("I'll help you make up a gobbledygook password.\nHow many characters do you want?\nPick a number between 8 and 128.");
-// console.log(howMany)
+console.log(howMany) 
 if (isNaN(howMany)){
   window.alert("Listen smarty-pants, when I ask for a number between 8 and 128 I mean that I want a NUMBER (8,9,10,11...) between 8 and 128.\n Try again.");
-  generatePassword()
+  askHowMany();
 } else {
   if (howMany < 8 || howMany > 128){
-    window.alert("OK, I'm gonna say this again real slow. I want a number BIGGER than 8, but SMALLER than 128. There are at least 131 correct answers if you include the 8 and the 128, which I do.\nPick one.");
-    generatePassword();
+    window.alert("OK, I'm gonna say this again real slow. I want a number BIGGER than 8, but SMALLER than 128. There are at least 121 correct answers if you include the 8 and the 128, which I do.\nPick one.");
+    askHowMany();
 } else {
   var thatMany = (howMany)/1
   if (Number.isInteger(thatMany)){
             // console.log("howMany an int? " + Number.isInteger(thatMany))
             thisMany = thatMany;
-            // console.log(thisMany);
+            console.log(thisMany);
+            return thisMany;
         } else {  
           thisMany = Math.round(howMany);
+          console.log(thisMany);
           window.alert("Jeez Einstein. No reason to make it difficult. I rounded " + howMany + " to " + thisMany +".\nYou're welcome.");
+          return thisMany;
         };
     };
   };
+};
 
-window.alert("OK, one password with " + thisMany + " characters. No problem.\n But first I got some y/n questions for yous. That means you can type 'y' for 'yes' or 'n' for 'no.'");
+askHowMany();
+console.log(thisMany);
+
+window.alert("OK, one password with " + thisMany + " characters. No problem.\nBut first I got some y/n questions for yous. That means you can type 'y' for 'yes' or 'n' for 'no.'");
 // these functions prompt the user for what kind of characters they want to include
 //they also offer unique insults to the user if the user doesn't give the correct input, and then start over.
 function incLA() {
@@ -216,8 +225,7 @@ stringThis = pickAndCheck();
 // console.log(stringThis);
 
 //makes array into a string
-
 passwordString = stringThis.join('');
-window.alert("Enjoy your password you goofy '" + passwordString + "'!");
+window.alert("Allright you goofy " + passwordString + ", your password will be in that text field where you can copy it easily. Click OK and get the " + passwordString + " outa here. NEXT CUSTOMER!");
 return passwordString
-};
+}; //end of generatePassword() function
